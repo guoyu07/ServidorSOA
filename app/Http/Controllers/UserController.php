@@ -11,6 +11,7 @@ use Auth;
 
 class UserController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-      return $this->responseOK("Usuarios obtenidos", User::all());
+        return response()->json(User::all()->toArray());
     }
 
     /**
@@ -118,7 +119,7 @@ class UserController extends Controller
       return Validator::make($request->all(), [
               'first_name' => 'required',
               'last_name' => 'required',
-              'email' => 'required|email|unique:users'
+              'email' => 'required|email'
           ]);
     }
 

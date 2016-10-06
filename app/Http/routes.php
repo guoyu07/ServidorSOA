@@ -10,12 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => ['cors']], function () {
+	Route::resource('/users', 'UserController', ['only'=>['index','store','update','destroy','show']]);
+	Route::put('/users/{id}/password', 'UserController@changePassword');
+	Route::post('/login', 'UserController@login');
+	Route::get('/token', 'UserController@getToken');
 });
-
-Route::resource('/users', 'UserController', ['only'=>['index','store','update','destroy','show']]);
-Route::put('/users/{id}/password', 'UserController@changePassword');
-Route::post('/login', 'UserController@login');
-Route::get('/token', 'UserController@getToken');
