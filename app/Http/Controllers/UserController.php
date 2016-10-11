@@ -39,8 +39,7 @@ class UserController extends Controller
         }
 
         return response()->json([
-                'status' => true,
-                'message' => 'Usuario creado correctamente.'
+                'status' => true
             ]);
     }
 
@@ -82,8 +81,7 @@ class UserController extends Controller
         }
 
         return response()->json([
-                'status' => true,
-                'message' => "Usuario actualizado correctamente."
+                'status' => true
             ]);
     }
 
@@ -104,8 +102,7 @@ class UserController extends Controller
         }
 
         return response()->json([
-                'status' => true,
-                'message' => "Usuario eliminado correctamente."
+                'status' => true
             ]);
     }
 
