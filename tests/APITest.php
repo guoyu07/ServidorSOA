@@ -31,9 +31,6 @@ class APITest extends TestCase
             [
                 'email' => 'nuevo@mail.com', 
                 'password' => '123'
-            ])
-            ->seeJson([
-                'status' => true
             ]);
     }
 
@@ -41,10 +38,7 @@ class APITest extends TestCase
     public function test_DeleteUser_Ok()
     {
         $user = App\User::where('email','nuevo@mail.com')->firstOrFail();
-        $this->json('DELETE', '/users/'.$user->id, [])
-            ->seeJson([
-                    'status' => true
-                ]);
+        $this->json('DELETE', '/users/'.$user->id, []);
     }
 
 
