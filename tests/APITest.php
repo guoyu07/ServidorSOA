@@ -15,15 +15,16 @@ class APITest extends TestCase
 
     public function test_CreateUser_Ok()
     {
-        $response = $this->json('POST', '/users',
+        $this->json('POST', '/users',
             [
                 'email' => 'nuevo@mail.com', 
                 'first_name' => 'Soy Nuevo',
                 'last_name' => 'Nuevecito',
                 'password' => '123'
+            ])
+            ->seeJson([
+                'status' => true
             ]);
-
-        $response->dump();
     }
 
 
