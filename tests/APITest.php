@@ -21,25 +21,32 @@ class APITest extends TestCase
                 'first_name' => 'Soy Nuevo',
                 'last_name' => 'Nuevecito',
                 'password' => '123'
+            ])
+            ->seeJson(
+            [
+                'status' => true,
             ]);
     }
 
 
-   public function test_Login_Ok()
+    public function test_Login_Ok()
     {
         $this->json('POST', '/login', 
             [
                 'email' => 'nuevo@mail.com', 
                 'password' => '123'
+            ])
+            ->seeJson([
+                'status' => true,
             ]);
     }
 
- 
+
     public function test_DeleteUser_Ok()
     {
-        $user = App\User::where('email','nuevo@mail.com')->firstOrFail();
+        $user = App\User::findOrFail(1);
         $this->json('DELETE', '/users/'.$user->id, []);
     }
 
 
- }
+}
