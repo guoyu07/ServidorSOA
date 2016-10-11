@@ -130,12 +130,13 @@ class UserController extends Controller
 
         if(! $user->save())
         {
-            return $this->responseFAIL('Error al actualizar la contraseña.',"");
+            return $this->responseFAIL('Error al actualizar la contraseña.',[""]);
         }
 
-        return $response->json([
+        return response()->json([
             'status' => true,
-            'message' => 'La contraseña ha sido cambiada correctamente.'
+            'message' => 'La contraseña ha sido cambiada correctamente.',
+            'data' => $user
             ]);
     }
 

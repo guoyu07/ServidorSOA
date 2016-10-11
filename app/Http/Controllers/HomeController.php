@@ -25,13 +25,13 @@ class HomeController extends Controller
 
 	public function downloadAndroid()
 	{
-		$file= public_path(). "/downloads/ArreglosCorto2.jar";
+		$file= public_path(). "/downloads/ClienteANDROID.jar";
 
 		$headers = array(
-			'Content-Type: application/jar',
+			'Content-Type: application/apk',
 			);
 
-		return response()->download($file, 'app.jar', $headers);
+		return response()->download($file, 'clienteMovil.apk', $headers);
 	}
 
 
@@ -46,7 +46,8 @@ class HomeController extends Controller
 			$user = Auth::user();
 			return response()->json([ 
 				'status' => true,
-				'message' => 'Usuario logueado correctamente.'
+				'message' => 'Usuario logueado correctamente.',
+				'data' => $user
 			]);
 		}
 
