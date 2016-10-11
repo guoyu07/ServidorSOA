@@ -1,11 +1,16 @@
 language: php
 
 php:
-  - 5.6.26
+  - '7.0'
+
+services:
+  - mysql
 
 before_script:
-  - cp .env.production .env
+  - mysql -e 'create database travis_test;'
+  - cp .env.test .env
   - php artisan key:generate
+  - php artisan migrate
   - composer self-update
   - composer install --no-interaction
 
