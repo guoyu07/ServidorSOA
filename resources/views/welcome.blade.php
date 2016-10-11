@@ -36,11 +36,11 @@
 
             a{
                 text-decoration: none;
-                font-size: 22px;
+                font-size: 18px;
             }
 
             a.btn{
-                padding: 0.75em;
+                padding: 0.8em;
                 margin: 1em;
                 background-color: gray;
                 border-radius: 5px;
@@ -60,7 +60,7 @@
                 <div class="btns">
                     <a class="btn" href="/android" download>Android (APK)</a>
                     <a class="btn" href="/java" download>Escritorio (JAR)</a>
-                    <a class="btn" href="http://ec2-52-34-76-37.us-west-2.compute.amazonaws.com:9090/index.html">Aplicación web</a>
+                    <a class="btn" href="http://ec2-52-34-76-37.us-west-2.compute.amazonaws.com/index.html" target="_blank">Aplicación web</a>
                 </div>
             </div>
         </div>

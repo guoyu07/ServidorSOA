@@ -133,7 +133,10 @@ class UserController extends Controller
             return $this->responseFAIL('Error al actualizar la contraseña.',"");
         }
 
-        return $this->responseOK('La contraseña ha sido cambiada correctamente.', $user);
+        return $response->json([
+            'status' => true,
+            'message' => 'La contraseña ha sido cambiada correctamente.'
+            ]);
     }
 
     private function checkUpdate($request)

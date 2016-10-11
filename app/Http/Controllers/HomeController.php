@@ -45,12 +45,14 @@ class HomeController extends Controller
 		{
 			$user = Auth::user();
 			return response()->json([ 
-				'status' => true
+				'status' => true,
+				'message' => 'Usuario logueado correctamente.'
 			]);
 		}
 
 		return response()->json([ 
-				'status' => false
+				'status' => false,
+				'message' => 'Error en las credenciales de inicio de sesión.'
 			]);
 	}
 
