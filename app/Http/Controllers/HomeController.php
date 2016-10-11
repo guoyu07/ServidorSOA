@@ -44,9 +44,9 @@ class HomeController extends Controller
 		if(Auth::attempt($credentials, $remember))
 		{
 			$user = Auth::user();
-			return response()->json( 
+			return response()->json([ 
 				'status' => true
-			);
+			]);
 		}
 
 		return response()->json([ 
