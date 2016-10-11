@@ -44,10 +44,16 @@ class HomeController extends Controller
 		if(Auth::attempt($credentials, $remember))
 		{
 			$user = Auth::user();
-			return $this->responseOK('Login correcto, bienvenid@ '.Auth::user()->full_name, $user);
+			return response()->json([ 
+				'status' => true,
+				'message' => 'Login correcto, bienvenid@ '.Auth::user()->full_name 
+			]);
 		}
 
-		return $this->responseFAIL('Error al iniciar sesión, credenciales incorrectas', [""]);
+		return response()->json([ 
+				'status' => false, 
+				'message' => 'Error al iniciar sesión, credenciales incorrectas' 
+			]);
 	}
 
 }
