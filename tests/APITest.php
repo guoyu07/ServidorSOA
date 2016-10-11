@@ -21,9 +21,6 @@ class APITest extends TestCase
                 'first_name' => 'Soy Nuevo',
                 'last_name' => 'Nuevecito',
                 'password' => '123'
-            ])
-            ->seeJson([
-                'status' => true
             ]);
     }
 
