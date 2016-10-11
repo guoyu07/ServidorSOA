@@ -23,7 +23,7 @@ class APITest extends TestCase
                 'password' => '123'
             ])
             ->seeJson([
-                'status' => true,
+                'status' => true
             ]);
     }
 
@@ -36,7 +36,7 @@ class APITest extends TestCase
                 'password' => '123'
             ])
             ->seeJson([
-                'status' => true,
+                'status' => true
             ]);
     }
 
@@ -46,7 +46,7 @@ class APITest extends TestCase
         $user = App\User::where('email','nuevo@mail.com')->firstOrFail();
         $this->json('DELETE', '/users/'.$user->id, [])
             ->seeJson([
-                    'status' => true,
+                    'status' => true
                 ]);
     }
 
