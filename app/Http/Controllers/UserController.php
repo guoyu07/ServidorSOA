@@ -38,7 +38,7 @@ class UserController extends Controller
             return $this->responseFAIL("Imposible crear el nuevo usuario.", [""]);
         }
 
-        return $this->responseOK("Usuario creado correctamente.", $user);
+        return response()->json(["status" => true]);
     }
 
     /**
@@ -97,7 +97,7 @@ class UserController extends Controller
             return $this->responseFAIL("Imposible eliminar el usuario solicitado.", [""]);
         }
 
-        return $this->responseOK("Usuario eliminado correctamente.", $user);
+        return response()->json(['status'=>true]);
     }
 
     /**
