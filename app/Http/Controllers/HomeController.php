@@ -12,20 +12,20 @@ class HomeController extends Controller
 
 	public function downloadJava()
 	{
-		$file= public_path(). "/downloads/ClienteJAVA.jar";
+		$file= public_path(). "/downloads/ClienteJAVA.zip";
 
 		$headers = array(
-			'Content-Type: application/jar',
+			'Content-Type: application/zip',
 			);
 
-		return response()->download($file, 'clienteDesktop.jar', $headers);
+		return response()->download($file, 'clienteDesktop.zip', $headers);
 	}
 
 
 
 	public function downloadAndroid()
 	{
-		$file= public_path(). "/downloads/ClienteANDROID.jar";
+		$file= public_path(). "/downloads/ClienteANDROID.apk";
 
 		$headers = array(
 			'Content-Type: application/apk',
