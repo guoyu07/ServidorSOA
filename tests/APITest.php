@@ -22,14 +22,13 @@ class APITest extends TestCase
                 'last_name' => 'Nuevecito',
                 'password' => '123'
             ])
-            ->seeJson(
-            [
-                'status' => true,
+            ->seeJson([
+                'status' => true
             ]);
     }
 
 
-    public function test_Login_Ok()
+   public function test_Login_Ok()
     {
         $this->json('POST', '/login', 
             [
@@ -37,16 +36,19 @@ class APITest extends TestCase
                 'password' => '123'
             ])
             ->seeJson([
-                'status' => true,
+                'status' => true
             ]);
     }
 
-
+ 
     public function test_DeleteUser_Ok()
     {
-        $user = App\User::findOrFail(1);
-        $this->json('DELETE', '/users/'.$user->id, []);
+        $user = App\User::where('email','nuevo@mail.com')->firstOrFail();
+        $this->json('DELETE', '/users/'.$user->id, [])
+            ->seeJson([
+                    'status' => true
+                ]);
     }
 
 
-}
+ }
