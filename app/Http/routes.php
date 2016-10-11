@@ -18,6 +18,8 @@ Route::get('/', function () {
 Route::group(['middleware' => ['cors']], function () {
 	Route::resource('/users', 'UserController', ['only'=>['index','store','update','destroy','show']]);
 	Route::put('/users/{id}/password', 'UserController@changePassword');
-	Route::post('/login', 'UserController@login');
 	Route::get('/token', 'UserController@getToken');
+	Route::get('/java', 'HomeController@downloadJava');
+	Route::get('/android', 'HomeController@downloadAndroid');
+	Route::post('/login', 'HomeController@login');
 });
